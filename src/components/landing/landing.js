@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from '../general/navbar'
 import Slideshow from '../general/slideshow'
+import ProductCard from '../products/productCard'
 import './landing.css';
 
 class Landing extends Component {
@@ -12,7 +13,14 @@ class Landing extends Component {
           <Slideshow />
         </div>
         <div className="products-view">
-          {/* <ProductCard /> */}
+          <div className="products">
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
+          </div>
         </div>
       </div>
     );

@@ -1,0 +1,36 @@
+.product-card {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 25vw;
+  height: 50vh;
+  background-color: #ccb280;
+  border-radius:0.12em;
+  box-shadow: 4px 6px rgb(0,0,0, 0.3);
+  margin: 15px;
+}
+.card-image {
+  max-width:  100%;
+  height: auto;
+  max-height: 25vh;
+}
+.card-image img {
+  margin: 0;
+}
+.card-description button {
+  display:inline-block;
+  padding:0.35em 1.2em;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.12em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-weight:300;
+  color:black;
+  text-align:center;
+  transition: all 0.2s;
+}
+.card-description button :hover{
+  color:#000000;
+  background-color:transparent;
+}

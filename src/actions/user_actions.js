@@ -18,7 +18,7 @@ function signup(email, name, pass) {
     return response.data
     // console.log(response)
   }).catch( error => {
-    return 'error'
+    return error
     // console.log(error);
   });
 }

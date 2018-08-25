@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Rodal from 'rodal';
+import { observer, inject } from 'mobx-react';
 // include styles
 import 'rodal/lib/rodal.css';
 import './navbar.css';
@@ -7,6 +8,8 @@ import './navbar.css';
 import Login from '../general/login'
 import ShopCart from '../general/shopcart'
 
+@inject("rootStore")  // this.props.rootStore.cartStore.items
+@observer
 class Navbar extends Component {
 
   constructor(props) {
@@ -21,6 +24,7 @@ class Navbar extends Component {
 
   show(e) {
     e.preventDefault();
+    // console.log("MOBX: ", this.props.rootStore.cartStore.items.length)
     this.setState({ [e.target.name]: true });
   }
 
@@ -34,14 +38,15 @@ class Navbar extends Component {
       width: 'auto',
       maxWidth: '25vw',
       height: 'auto',
-      maxHeight: '30vh'
+      maxHeight: '30vh',
+      overflow: 'auto',
     }
 
     return (
       <div className="header">
                 
         <Rodal customStyles={modalStyle} visible={this.state.loginVisible} onClose={this.hide}>
-          <Login />
+          <Login /> 
         </Rodal>
 
         <Rodal customStyles={modalStyle} visible={this.state.shoppingVisible} onClose={this.hide}>
@@ -49,12 +54,12 @@ class Navbar extends Component {
         </Rodal>
 
         <a href="#default" className="logo">            
-         <img className="logo-img" src="/ambar-logo.png" />
+         <img alt="" className="logo-img" src="/ambar-logo.png" />
         </a>
         <div className="header-right">
           {/* <a class="active" href="#home">Home</a> */}
-          <a href="#" name="shoppingVisible" onClick={this.show}> Carrito </a>
-          <a href="#" name="loginVisible" onClick={this.show}> Inicio </a>
+          <a href="/#" name="shoppingVisible" onClick={this.show}> Carrito  {this.props.rootStore.cartStore.items.length}</a>
+          <a href="/#" name="loginVisible" onClick={this.show}> Inicio </a>
         </div>
       </div>
     );

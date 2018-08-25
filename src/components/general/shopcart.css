@@ -1,12 +1,12 @@
 .shop-form {
-  overflow: auto;
   margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.cart-item {
+.cart-item div{
+  overflow: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-around;

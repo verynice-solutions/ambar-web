@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import Landing from './components/landing/landing'
 import './App.css';
 import {Provider} from 'mobx-react'

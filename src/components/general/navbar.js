@@ -16,10 +16,12 @@ class Navbar extends Component {
     super(props);
     this.state = { 
       loginVisible: false,
-      shoppingVisible: false
+      shoppingVisible: false,
+      sessionUser: JSON.parse(localStorage.getItem("sessionUser"))
     };
     this.hide = this.hide.bind(this)
     this.show = this.show.bind(this)
+    this.logout = this.logout.bind(this)
   }
 
   show(e) {
@@ -30,6 +32,11 @@ class Navbar extends Component {
 
   hide() {
     this.setState({ loginVisible: false, shoppingVisible: false });
+  }
+
+  logout() {
+    localStorage.removeItem("sessionUser");
+    this.props.rootStore.userStore.removeUser()
   }
 
   render() {
@@ -59,7 +66,13 @@ class Navbar extends Component {
         <div className="header-right">
           {/* <a class="active" href="#home">Home</a> */}
           <a href="/#" name="shoppingVisible" onClick={this.show}> Carrito  {this.props.rootStore.cartStore.items.length}</a>
-          <a href="/#" name="loginVisible" onClick={this.show}> Inicio </a>
+          {
+            this.props.rootStore.userStore.getCurrentUser ? (
+              <a href="/#" onClick={this.logout}> Salir </a>
+            ):(
+              <a href="/#" name="loginVisible" onClick={this.show}> Inicio </a>
+            )
+          }
         </div>
       </div>
     );

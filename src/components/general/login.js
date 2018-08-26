@@ -18,15 +18,17 @@ class Login extends Component {
   login =()=> {
     UserActions.login(this.state.email, this.state.password).then((resp)=>{
       console.log(resp)
-      if(resp.status){
-        this.setState({
-          error: 'Check your e-mail or password'
-        })
-      }else{
-        // Set Session
-        localStorage.setItem("sessionUser", JSON.stringify(resp))
-        this.props.rootStore.userStore.setUser(resp)
-        window.location.href = '/'
+      if (resp){
+        if(resp.status){
+          this.setState({
+            error: 'Check your e-mail or password'
+          })
+        }else{
+          // Set Session
+          localStorage.setItem("sessionUser", JSON.stringify(resp))
+          this.props.rootStore.userStore.setUser(resp)
+          window.location.href = '/'
+        }
       }
     })
   }

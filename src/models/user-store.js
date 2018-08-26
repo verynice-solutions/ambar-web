@@ -10,7 +10,10 @@ class UserStore {
 
     constructor() {
       let localUser = JSON.parse(localStorage.getItem("sessionUser"))
-      localUser&&(this.currentUser = new User(localUser))
+      if(this.session()) {
+        console.log(localUser)
+        localUser&&(this.currentUser = new User(localUser))
+      }
     }
     
     setUser (user){
@@ -18,14 +21,16 @@ class UserStore {
     }
 
     removeUser() {
+      localStorage.removeItem("sessionUser");
       this.currentUser = null
     } 
 
     session() {
-      if(this.currentUser === {} || this.currentUser === null){
-        return false
-      }else {
+      let localUser = JSON.parse(localStorage.getItem("sessionUser"))
+      if(localUser) {
         return true
+      }else {
+        return false
       }
     }
 

@@ -35,13 +35,22 @@ class Navbar extends Component {
   }
 
   logout() {
-    localStorage.removeItem("sessionUser");
     this.props.rootStore.userStore.removeUser()
+    window.location.href = '/'
+
   }
 
   render() {
 
-    const modalStyle = {
+    const cartStyle = {
+      width: 'auto',
+      maxWidth: '50vw',
+      height: 'auto',
+      maxHeight: '30vh',
+      overflow: 'auto',
+    }
+
+    const loginStyle = {
       width: 'auto',
       maxWidth: '25vw',
       height: 'auto',
@@ -52,11 +61,11 @@ class Navbar extends Component {
     return (
       <div className="header">
                 
-        <Rodal customStyles={modalStyle} visible={this.state.loginVisible} onClose={this.hide}>
+        <Rodal customStyles={loginStyle} visible={this.state.loginVisible} onClose={this.hide}>
           <Login /> 
         </Rodal>
 
-        <Rodal customStyles={modalStyle} visible={this.state.shoppingVisible} onClose={this.hide}>
+        <Rodal customStyles={cartStyle} visible={this.state.shoppingVisible} onClose={this.hide}>
           <ShopCart />
         </Rodal>
 

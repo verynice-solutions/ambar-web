@@ -39,8 +39,14 @@ class Shopcart extends Component {
   }
 
   purchase =()=> {
-    //If not logged
-    this.register()
+    //If logged
+    console.log(this.props.rootStore.userStore.session)
+    if (this.props.rootStore.userStore.session) {
+      //Make purchase
+      console.log("HAI BUYY")
+    }else{
+      this.register()
+    }
   }
 
   render() {
@@ -55,7 +61,6 @@ class Shopcart extends Component {
               <div className='shop-list'>
                 <div className='cart-item'>
                   <div><div> Nombre </div>
-                  <div> Cantidad </div>
                   <div> Precio </div></div>
                 </div>
                 <div className='cart-item'>
@@ -64,7 +69,6 @@ class Shopcart extends Component {
                     allItems.map((item)=>{
                       return <div key={item.id}> 
                         <div> {item.name} </div>
-                        <div> {item.qty} </div>
                         <div> {item.price} </div>
                       </div>
                     })
@@ -72,36 +76,35 @@ class Shopcart extends Component {
                   }
                 </div>
               <br/>
+
+            {
+              !this.props.rootStore.userStore.session() &&(
+                <div>
+                  <label htmlFor="username"><b>Nombre</b></label>
+                  <input onChange={this.handleChange} type="text" placeholder="Nombre" name="username" />
+      
+                  <label htmlFor="email"><b>E-mail</b></label>
+                  <input onChange={this.handleChange} type="text" placeholder="E-mail" name="email" />
+      
+                  <label htmlFor="psw"><b>Password</b></label>
+                  <input onChange={this.handleChange} type="password" placeholder="Contraseña" name="psw" />
+      
+                  <label htmlFor="vpsw"><b>Verifica Contraseña</b></label>
+                  <input onChange={this.handleChange} type="password" placeholder="Verifica Contraseña" name="vpsw" />
+                </div>
+              )
+            }
+              {
+                this.state.error && (
+                  <p> {this.state.error} </p>
+                )
+              }
+              <button onClick={()=>this.purchase()}  type="submit">Crear Orden</button>
            </div>
             ):(
               <p> No items en el carrito </p>
             )
           }
-
-          {
-            !this.props.rootStore.userStore.session() &&(
-              <div>
-                <label htmlFor="username"><b>Nombre</b></label>
-                <input onChange={this.handleChange} type="text" placeholder="Nombre" name="username" />
-    
-                <label htmlFor="email"><b>E-mail</b></label>
-                <input onChange={this.handleChange} type="text" placeholder="E-mail" name="email" />
-    
-                <label htmlFor="psw"><b>Password</b></label>
-                <input onChange={this.handleChange} type="password" placeholder="Contraseña" name="psw" />
-    
-                <label htmlFor="vpsw"><b>Verifica Contraseña</b></label>
-                <input onChange={this.handleChange} type="password" placeholder="Verifica Contraseña" name="vpsw" />
-                  
-                <button onClick={()=>this.purchase()}  type="submit">Crear Orden</button>
-              </div>
-            )
-          }
-            {
-              this.state.error && (
-                <p> {this.state.error} </p>
-              )
-            }
           </div>
       </div>
     );

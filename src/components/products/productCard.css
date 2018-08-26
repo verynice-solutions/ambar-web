@@ -34,3 +34,10 @@
   color:#000000;
   background-color:transparent;
 }
+
+
+@media screen and (max-width: 500px) {
+  .product-card {
+    min-width: 80vw;
+  }
+}

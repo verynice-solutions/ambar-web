@@ -1,4 +1,4 @@
-.shop-form {
+.shop-form div{
   margin-top: 20px;
   display: flex;
   flex-direction: column;
@@ -10,4 +10,5 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin: 0;
 }

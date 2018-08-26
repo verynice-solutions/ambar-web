@@ -67,7 +67,7 @@ class Navbar extends Component {
           {/* <a class="active" href="#home">Home</a> */}
           <a href="/#" name="shoppingVisible" onClick={this.show}> Carrito  {this.props.rootStore.cartStore.items.length}</a>
           {
-            this.props.rootStore.userStore.getCurrentUser ? (
+            this.props.rootStore.userStore.session() ? (
               <a href="/#" onClick={this.logout}> Salir </a>
             ):(
               <a href="/#" name="loginVisible" onClick={this.show}> Inicio </a>

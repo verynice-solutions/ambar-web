@@ -13,7 +13,8 @@ class Shopcart extends Component {
       email: '',
       username: '',
       psw: '',
-      vpsw: ''
+      vpsw: '',
+      error: ''
     }
     this.handleChange = this.handleChange.bind(this)
     this.register = this.register.bind(this)
@@ -25,9 +26,16 @@ class Shopcart extends Component {
   }
 
   register() {
-    UserActions.signup(this.state.email, this.state.username, this.state.psw).then((response)=>{
-      console.log(response)
-    })
+    if(this.state.psw === this.state.vpsw) {
+      UserActions.signup(this.state.email, this.state.username, this.state.psw).then((response)=>{
+        console.log(response)
+      })
+    }else{
+      this.setState({ 
+        error: 'Verifica tus contraseñas'
+      });
+    }
+    
   }
 
   purchase =()=> {
@@ -45,47 +53,55 @@ class Shopcart extends Component {
           {
             allItems.length > 0 ? (
               <div className='shop-list'>
-              {
-                //to map...
-              }
-             <div className='cart-item'>
-               <div><div> Nombre </div>
-               <div> Cantidad </div>
-               <div> Precio </div></div>
-             </div>
-             <div className='cart-item'>
-              {
-                allItems && (
-                 allItems.map((item)=>{
-                   return <div key={item.id}> 
-                     <div> {item.name} </div>
-                     <div> {item.qty} </div>
-                     <div> {item.price} </div>
-                   </div>
-                 })
-               )
-              }
-             </div>
-           <br/>
+                <div className='cart-item'>
+                  <div><div> Nombre </div>
+                  <div> Cantidad </div>
+                  <div> Precio </div></div>
+                </div>
+                <div className='cart-item'>
+                  {
+                    allItems && (
+                    allItems.map((item)=>{
+                      return <div key={item.id}> 
+                        <div> {item.name} </div>
+                        <div> {item.qty} </div>
+                        <div> {item.price} </div>
+                      </div>
+                    })
+                  )
+                  }
+                </div>
+              <br/>
            </div>
             ):(
               <p> No items en el carrito </p>
             )
           }
 
-            <label htmlFor="username"><b>Nombre</b></label>
-            <input onChange={this.handleChange} type="text" placeholder="Nombre" name="username" />
-
-            <label htmlFor="email"><b>E-mail</b></label>
-            <input onChange={this.handleChange} type="text" placeholder="E-mail" name="email" />
-
-            <label htmlFor="psw"><b>Password</b></label>
-            <input onChange={this.handleChange} type="password" placeholder="Contraseña" name="psw" />
-
-            <label htmlFor="vpsw"><b>Verifica Contraseña</b></label>
-            <input onChange={this.handleChange} type="password" placeholder="Verifica Contraseña" name="vpsw" />
-              
-            <button onClick={()=>this.purchase()}  type="submit">Crear Orden</button>
+          {
+            !this.props.rootStore.userStore.session() &&(
+              <div>
+                <label htmlFor="username"><b>Nombre</b></label>
+                <input onChange={this.handleChange} type="text" placeholder="Nombre" name="username" />
+    
+                <label htmlFor="email"><b>E-mail</b></label>
+                <input onChange={this.handleChange} type="text" placeholder="E-mail" name="email" />
+    
+                <label htmlFor="psw"><b>Password</b></label>
+                <input onChange={this.handleChange} type="password" placeholder="Contraseña" name="psw" />
+    
+                <label htmlFor="vpsw"><b>Verifica Contraseña</b></label>
+                <input onChange={this.handleChange} type="password" placeholder="Verifica Contraseña" name="vpsw" />
+                  
+                <button onClick={()=>this.purchase()}  type="submit">Crear Orden</button>
+              </div>
+            )
+          }
+            {
+              this.state.error && (
+                <p> {this.state.error} </p>
+              )
+            }
           </div>
       </div>
     );

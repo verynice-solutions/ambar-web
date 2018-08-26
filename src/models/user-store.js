@@ -19,6 +19,14 @@ class UserStore {
 
     removeUser() {
       this.currentUser = null
+    } 
+
+    session() {
+      if(this.currentUser === {} || this.currentUser === null){
+        return false
+      }else {
+        return true
+      }
     }
 
     @computed get getCurrentUser() {

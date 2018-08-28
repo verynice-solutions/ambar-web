@@ -86,7 +86,7 @@ class Shopcart extends Component {
                   <label htmlFor="email"><b>E-mail</b></label>
                   <input onChange={this.handleChange} type="text" placeholder="E-mail" name="email" />
       
-                  <label htmlFor="psw"><b>Password</b></label>
+                  <label htmlFor="psw"><b>Contraseña</b></label>
                   <input onChange={this.handleChange} type="password" placeholder="Contraseña" name="psw" />
       
                   <label htmlFor="vpsw"><b>Verifica Contraseña</b></label>

@@ -1,0 +1,32 @@
+import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import Navbar from './general/navbar'
+import Landing from './landing/landing'
+import OrdersView from './orders/orders'
+
+@inject("rootStore") 
+@observer
+class Routes extends Component {
+
+  render() {
+    return (
+      <div>
+        <Navbar />  
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Landing} />
+            {
+              this.props.rootStore.userStore.session()&& (
+                <Route path="/ordenes" component={OrdersView} />
+              )
+            }
+            <Route component={Landing}/>
+          </Switch>
+        </Router>
+      </div>
+    );
+  }
+}
+
+export default Routes;

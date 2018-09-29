@@ -75,13 +75,11 @@ class Navbar extends Component {
         <div className="header-right">
           {/* <a class="active" href="#home">Home</a> */}
           <a href="/" name="shoppingVisible" onClick={this.show}> Carrito  {this.props.rootStore.cartStore.items.length}</a>
+          <a href="/about"> Nosotros </a>
+          <a href="/ordenes"> Ordenes </a>
           {
             this.props.rootStore.userStore.session() ? (
-              <span>
-                <a href="/about"> Nosotros </a>
-                <a href="/ordenes"> Ordenes </a>
-                <a href="/" onClick={this.logout}> Salir </a>
-              </span>
+              <a href="/" onClick={this.logout}> Salir </a>
             ):(
               <a href="/" name="loginVisible" onClick={this.show}> Inicio </a>
             )

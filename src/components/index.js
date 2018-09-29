@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Navbar from './general/navbar'
 import Landing from './landing/landing'
 import OrdersView from './orders/orders'
+import ProductPage from './products/productPage'
 
 @inject("rootStore") 
 @observer
@@ -21,6 +22,7 @@ class Routes extends Component {
                 <Route path="/ordenes" component={OrdersView} />
               )
             }
+            <Route path="/product/:id" component={ProductPage} />
             <Route component={Landing}/>
           </Switch>
         </Router>

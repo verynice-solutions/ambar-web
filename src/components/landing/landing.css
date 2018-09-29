@@ -1,5 +1,10 @@
+iframe {
+  overflow:hidden;
+  height: 80vh;
+  width:100vw;
+}
 .slide-view {
-  background-color: #e2d3b7;
+  background-color: rgb(226,211,183);
 }
 .products-view {
   background-color: #e2d3b7;

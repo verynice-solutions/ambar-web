@@ -28,7 +28,7 @@ class Landing extends Component {
       <div>
         <div className="slide-view">
           {/* <Slideshow /> */}
-          <iframe title="promovid" src="https://streamable.com/s/tug3b/mzjlbm?autoplay=1&muted=1" frameborder="0"/>
+          <iframe title="promovid" src="https://streamable.com/s/tug3b/dvnwmc?autoplay=1&muted=1" frameborder="0"/>
         </div>
         <div className="products-view">
           <div className="products">

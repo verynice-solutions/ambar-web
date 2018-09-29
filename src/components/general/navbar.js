@@ -78,6 +78,7 @@ class Navbar extends Component {
           {
             this.props.rootStore.userStore.session() ? (
               <span>
+                <a href="/about"> Nosotros </a>
                 <a href="/ordenes"> Ordenes </a>
                 <a href="/" onClick={this.logout}> Salir </a>
               </span>

@@ -1,22 +1,44 @@
 iframe {
   overflow:hidden;
   height: 80vh;
-  width:100vw;
+  width: 50vw;
 }
 .slide-view {
   background-color: rgb(226,211,183);
 }
-.products-view {
+.section {
   background-color: #e2d3b7;
   height: auto;
   min-height: 100vh;
+  padding: 5% 0;
 }
-.products {
-  max-width: 100vw;
+.subsection {
   display: flex;
-  flex-wrap: wrap;
-  margin: 50px 15px;
-  padding: 60px;
+  width: 100%;
   flex-direction: row;
   justify-content: space-around;
+}
+.about-container {
+  max-width: 50vw;
+  padding: 10% 5% 0 5%;
+}
+.mision-container {
+  max-width: 50vw;
+  padding: 5% 0 0 0;
+}
+
+
+@media screen and (max-width: 600px) {
+  iframe {
+    height: 80vh;
+    width: 90vw;
+    padding: 0;
+  }
+  .subsection {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .about-container {
+    max-width: 100vw;
+  }
 }

@@ -34,9 +34,27 @@ function getProduct(id) {
   });
 }
 
+function getAllCategories() {
+  let url = 'https://ambar-core.herokuapp.com/categories'
+  return axios({
+    url: url,
+    method: 'get',
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+    }
+  }).then(response => {
+    return response.data
+  }).catch( error => {
+    console.log(error);
+    return error.response
+  });
+}
+
 const userActions = {
   getAll,
-  getProduct
+  getProduct,
+  getAllCategories
 };
 
 export default userActions;

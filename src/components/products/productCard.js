@@ -25,6 +25,9 @@ class ProductCard extends Component {
           <div className='card-title'>
             <h3> {product.attributes.title} </h3>
           </div>
+          <div>
+            <h3> $ {product.attributes.price} </h3>
+          </div>
           <div className='card-description'>
             <button onClick={() => this.addItemToCart(1,"item1",3)}> Agregar </button>
             <button onClick={()=>this.props.history.push(`product/${product.id}`)}> + info </button>

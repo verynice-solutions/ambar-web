@@ -35,24 +35,22 @@ class AllProducts extends Component {
           </div>
         </div>
         <div className="products-section">
-          <div className="products-section">
-            <div className="side-section">
-            <h3>Categorias</h3>
-              {
-                categories&& categories.map((cat)=>{
-                  return <a>{cat}</a>
-                })
-              }
-            </div>
-            <div className="products">
+          <div className="side-section">
+          <h3>Categorias</h3>
             {
-              products && (
-                products.map((product)=>{
-                  return <ProductCard productInfo={product}/>
-                })
-              )
+              categories&& categories.map((cat)=>{
+                return <a>{cat}</a>
+              })
             }
-            </div>
+          </div>
+          <div className="products">
+          {
+            products && (
+              products.map((product)=>{
+                return <ProductCard productInfo={product}/>
+              })
+            )
+          }
           </div>
         </div>
       </div>

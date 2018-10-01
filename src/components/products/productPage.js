@@ -34,18 +34,25 @@ class ProductPage extends Component {
       <div> 
         {
           product &&(
-          <div className="product-page"> 
-            <div>
-            <img src={product.links.image}/>
+          <div> 
+            <div className="product-page"> 
+              <div> <img src={product.links.image}/> </div>
+              <div className="product-detail">
+                <h3>{product.attributes.title} </h3>
+                <p>{product.attributes.description}</p>
+                <button onClick={() => this.addItemToCart(1,"item1",3)}> Agregar </button>
+              </div>
             </div>
-            <div className="product-detail">
-              <h3>{product.attributes.title} </h3>
-              <p>{product.attributes.description}</p>
-              <button onClick={() => this.addItemToCart(1,"item1",3)}> Agregar </button>
+            <div className="comments-container">
+              <form>
+                <textarea rows="10" name="comment" id="comment" placeholder="Comentario"></textarea>
+                <input type="submit" name="submit" value="Comentar"></input>
+              </form> 
             </div>
           </div>
           )
         }
+
 
       </div>
     );

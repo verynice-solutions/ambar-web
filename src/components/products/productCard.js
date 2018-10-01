@@ -23,10 +23,10 @@ class ProductCard extends Component {
         </div>
         <div className='card-info'>
           <div className='card-title'>
-            <h3> {product.attributes.title} </h3>
+            <h5> {product.attributes.title} </h5>
           </div>
           <div>
-            <h3> $ {product.attributes.price} </h3>
+            <p> $ {product.attributes.price} </p>
           </div>
           <div className='card-description'>
             <button onClick={() => this.addItemToCart(1,"item1",3)}> Agregar </button>

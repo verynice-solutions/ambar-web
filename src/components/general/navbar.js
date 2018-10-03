@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom'
 import Rodal from 'rodal';
 import { observer, inject } from 'mobx-react';
 // include styles
@@ -69,21 +70,21 @@ class Navbar extends Component {
           <ShopCart />
         </Rodal>
 
-        <a href="/" className="logo">            
+        <Link to="/"><a className="logo">            
          <img alt="" className="logo-img" src="/ambar-logo.png" />
-        </a>
+        </a></Link>
         <div className="header-right">
           {/* <a class="active" href="#home">Home</a> */}
-          <a href="/" name="shoppingVisible" onClick={this.show}> Carrito  {this.props.rootStore.cartStore.items.length}</a>
-          <a href="/products"> Productos </a>
+          <Link to="/"> <a href="/" name="shoppingVisible" onClick={this.show}> Carrito  {this.props.rootStore.cartStore.items.length}</a></Link>
+          <Link to="/products"><a> Productos </a></Link>
           {
             this.props.rootStore.userStore.session() ? (
               <span>
-                <a href="/ordenes"> Ordenes </a>
-                <a href="/" onClick={this.logout}> Salir </a>
+                <Link to="/ordenes"><a> Ordenes </a></Link>
+                <Link to="/"><a href="/" onClick={this.logout}> Salir </a></Link>
               </span>
             ):(
-              <a href="/" name="loginVisible" onClick={this.show}> Inicio </a>
+              <Link to="/"><a href="/" name="loginVisible" onClick={this.show}> Inicio </a></Link>
             )
           }
         </div>

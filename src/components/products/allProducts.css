@@ -9,11 +9,13 @@ a {
   margin: -2% 0 0 0;
 }
 .side-section {
-  background-color: #cbbda4;
+  font-weight: bold;
   display: flex; 
+  width: 15%;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 0 20px;
+  text-align: left;
+  padding: 2% 0 2% 20px;
 }
 .side-section a{
   margin: 5px 0;
@@ -33,6 +35,12 @@ a {
   padding: 2% 0;
 }
 
+.products-filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0 2%;
+}
 .dropdown {
   position: relative;
   display: inline-block;
@@ -48,5 +56,6 @@ a {
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   padding: 12px 16px;
   z-index: 1;
+  text-align: left;
 
 }

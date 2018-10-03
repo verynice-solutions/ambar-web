@@ -16,22 +16,24 @@ class Routes extends Component {
   render() {
     return (
       <div>
-        <Navbar />  
         <Router>
-          <Switch>
-            <Route exact path="/" component={Landing} />
-            {
-              this.props.rootStore.userStore.session()&& (
-                <Route path="/ordenes" component={OrdersView} />
-              )
-            }
-            <Route path="/products" component={AllProducts} />
-            <Route path="/about" component={AboutPage} />
-            <Route path="/product/:id" component={ProductPage} />
-            <Route component={Landing}/>
-          </Switch>
+          <div>
+            <Navbar />  
+            <Switch>
+              <Route exact path="/" component={Landing} />
+              {
+                this.props.rootStore.userStore.session()&& (
+                  <Route path="/ordenes" component={OrdersView} />
+                )
+              }
+              <Route path="/products" component={AllProducts} />
+              <Route path="/about" component={AboutPage} />
+              <Route path="/product/:id" component={ProductPage} />
+              <Route component={Landing}/>
+            </Switch>
+            <Footer />
+          </div>
         </Router>
-        <Footer />
       </div>
     );
   }

@@ -8,8 +8,12 @@ class AllProducts extends Component {
     super(props);
     this.state = {
       showingProducts: null,
-      allCategories: null
+      currentCategories: null,
+      currentName: ''
     }
+    this.showCategory = this.showCategory.bind(this)
+    this.setFilter = this.setFilter.bind(this)
+
   }
   
   componentDidMount() {
@@ -18,28 +22,48 @@ class AllProducts extends Component {
     })
     productsActions.getAllCategories().then((resp) => {
       console.log(resp)
-      this.setState({allCategories: resp})
+      this.setState({currentCategories: resp, currentName: 'TODAS'})
     })
   }
+  showCategory(e) {
+    e.preventDefault()
+    let category = e.target.name
+    productsActions.filterProducts('category', category).then((resp) => {
+      console.log("CAT", resp)
+      // this.setState({currentCategories: resp, currentName: 'TODAS'})
+    })
+  }
+
+  setFilter(e) {
+    e.preventDefault()
+
+  }
+
   render() {
     let products = this.state.showingProducts
-    let categories = this.state.allCategories
+    let categories = this.state.currentCategories
     return (
       <div>
         <h3> Productos </h3>
-        <div className="dropdown">
-          <span>Filtrar</span>
-          <div className="dropdown-items">
-            <p><a>menor a mayor precio</a></p>
-            <p><a>mayor a menor precio</a></p>
+        <div className="products-filter">
+          <div className="dropdown">
+            <a>Filtrar</a>
+            <div className="dropdown-items">
+              <p><a>menor a mayor precio</a></p>
+              <p><a>mayor a menor precio</a></p>
+            </div>
+          </div>
+          <div>
+            <p>Categoría: {this.state.currentName}</p>
           </div>
         </div>
+        
         <div className="products-section">
           <div className="side-section">
-          <h3>Categorias</h3>
+          <h6 style={{borderBottom: '1px solid #273b84', color:'#273b84'}}>Categorias</h6>
             {
               categories&& categories.map((cat)=>{
-                return <a>{cat}</a>
+                return <a name={cat.id} onClick={this.showCategory}>{cat.name}</a>
               })
             }
           </div>

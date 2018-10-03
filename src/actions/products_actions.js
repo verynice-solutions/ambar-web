@@ -51,6 +51,24 @@ function getAllCategories() {
   });
 }
 
+function sendOrder(order) {
+  let url = 'https://ambar-core.herokuapp.com/shopping_carts'
+  return axios({
+    url: url,
+    method: 'post',
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+    },
+    data: order
+  }).then(response => {
+    return response.data
+    // console.log(response)
+  }).catch( error => {
+    return error.response
+    // console.log(error);
+  });
+}
 
 function filterProducts(order, category) {
   let catParam = `&category=${category}`
@@ -72,11 +90,13 @@ function filterProducts(order, category) {
 }
 
 
+
 const userActions = {
   getAll,
   getProduct,
   getAllCategories,
-  filterProducts
+  filterProducts,
+  sendOrder
 };
 
 export default userActions;

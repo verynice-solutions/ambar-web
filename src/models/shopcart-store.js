@@ -1,19 +1,16 @@
 import { observable, computed } from "mobx"
 
 class Item{
-  constructor(id, name, qty){
-    this.id = id
-    this.name = name
-    this.quantity = qty
-    this.price = 0.0
+  constructor(item){
+    this.item = item
   }
 }
 
 class ShopcartStore {
     @observable items = []
     
-    addItem (id, name, qty){
-      this.items.push(new Item(id, name, qty))
+    addItem (item){
+      this.items.push(new Item(item))
     }
 
     @computed get allItems() {

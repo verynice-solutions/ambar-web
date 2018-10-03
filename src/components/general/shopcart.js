@@ -1,6 +1,8 @@
-import React, { Component } from 'react';
+import _ from 'lodash'
+import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react';
 import UserActions from '../../actions/user_actions'
+import ProductActions from '../../actions/products_actions'
 import './shopcart.css'
 
 @inject("rootStore")  // this.props.rootStore.cartStore.items
@@ -18,6 +20,7 @@ class Shopcart extends Component {
     }
     this.handleChange = this.handleChange.bind(this)
     this.register = this.register.bind(this)
+    this.setOrder = this.setOrder.bind(this)
   }
 
   handleChange(e) {
@@ -39,19 +42,35 @@ class Shopcart extends Component {
   }
 
   purchase =()=> {
+    let currentUser = this.props.rootStore.userStore.getCurrentUser
+    let allItems = this.props.rootStore.cartStore.allItems
+    let order = this.setOrder(currentUser.token, allItems)
+    ProductActions.sendOrder(JSON.stringify(order)).then((resp)=>{
+      console.log(resp)
+    })
     //If logged
-    console.log(this.props.rootStore.userStore.session)
-    if (this.props.rootStore.userStore.session) {
-      //Make purchase
-      console.log("HAI BUYY")
-    }else{
-      this.register()
+    // let session = this.props.rootStore.userStore.session
+    // console.log(session)
+    // if (session) {
+    //   //Make purchase
+    //   console.log("HAI BUYY")
+    // }else{
+    //   this.register()
+    // }
+  }
+
+  setOrder(auth, bag) {
+    let order = {
+      authorization: auth,
+      status: 'created',
+      order_items: _.countBy(bag, 'item.id')
     }
+    return order;
   }
 
   render() {
     let allItems = this.props.rootStore.cartStore.allItems
-
+    this.setOrder(allItems)
     return (
       <div>        
         Carrito
@@ -67,9 +86,9 @@ class Shopcart extends Component {
                   {
                     allItems && (
                     allItems.map((item)=>{
-                      return <div key={item.id}> 
-                        <div> {item.name} </div>
-                        <div> {item.price} </div>
+                      return <div key={item.item.id}> 
+                        <div> {item.item.title} </div>
+                        <div> {item.item.price} </div>
                       </div>
                     })
                   )

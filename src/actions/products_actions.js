@@ -53,14 +53,12 @@ function getAllCategories() {
 
 
 function filterProducts(order, category) {
-  let url = 'https://ambar-core.herokuapp.com/products'
+  let catParam = `&category=${category}`
+  !category && (catParam = ``)
+  let url = `https://ambar-core.herokuapp.com/products?order_by=${order}`+catParam
   return axios({
     url: url,
     method: 'get',
-    data: {
-      order_by: order,
-      category: category
-    },
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',

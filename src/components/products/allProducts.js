@@ -29,14 +29,18 @@ class AllProducts extends Component {
     e.preventDefault()
     let category = e.target.name
     productsActions.filterProducts('category', category).then((resp) => {
-      console.log("CAT", resp)
-      // this.setState({currentCategories: resp, currentName: 'TODAS'})
+      this.setState({showingProducts: resp.data, currentName: category})
     })
   }
 
   setFilter(e) {
     e.preventDefault()
-
+    let type = e.target.name
+    let name = this.state.currentName
+    name === '' || name === 'TODAS' && (name = null)
+    productsActions.filterProducts(type, name).then((resp) => {
+      this.setState({showingProducts: resp.data})
+    })
   }
 
   render() {
@@ -49,8 +53,8 @@ class AllProducts extends Component {
           <div className="dropdown">
             <a>Filtrar</a>
             <div className="dropdown-items">
-              <p><a>menor a mayor precio</a></p>
-              <p><a>mayor a menor precio</a></p>
+              <p><a name="price_asc" onClick={this.setFilter}>menor a mayor precio</a></p>
+              <p><a name="price_desc" onClick={this.setFilter}>mayor a menor precio</a></p>
             </div>
           </div>
           <div>
@@ -63,7 +67,7 @@ class AllProducts extends Component {
           <h6 style={{borderBottom: '1px solid #273b84', color:'#273b84'}}>Categorias</h6>
             {
               categories&& categories.map((cat)=>{
-                return <a name={cat.id} onClick={this.showCategory}>{cat.name}</a>
+                return <a name={cat.name} onClick={this.showCategory}>{cat.name}</a>
               })
             }
           </div>

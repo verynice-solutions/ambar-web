@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter} from 'react-router-dom';
 import UserActions from '../../actions/user_actions'
 import { observer, inject } from 'mobx-react';
 import './login.css'
@@ -27,7 +28,9 @@ class Login extends Component {
           // Set Session
           localStorage.setItem("sessionUser", JSON.stringify(resp))
           this.props.rootStore.userStore.setUser(resp)
-          window.location.href = '/'
+          // window.location.href = '/'
+          this.props.history.push('/')
+          this.props.close()
         }
       }
     })
@@ -62,4 +65,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

@@ -29,34 +29,46 @@ class Shopcart extends Component {
   }
 
   register() {
-    if(this.state.psw === this.state.vpsw) {
+    let email = this.state.email
+    let username = this.state.username
+    let psw = this.state.psw
+    if(email && username && psw === this.state.vpsw) {
       UserActions.signup(this.state.email, this.state.username, this.state.psw).then((response)=>{
-        console.log(response)
+        //login
+        localStorage.setItem("sessionUser", JSON.stringify(response))
+        this.props.rootStore.userStore.setUser(response)
+        this.createOrder()
+        console.log("HEREEEE", response)
       })
     }else{
       this.setState({ 
-        error: 'Verifica tus contraseñas'
+        error: 'Verifica los campos'
       });
     }
     
   }
 
   purchase =()=> {
+    // If logged
+    let session = this.props.rootStore.userStore.session()
+    console.log(session)
+    if (session) {
+      //Create order
+      this.createOrder()
+    }else{
+      this.register()
+    }
+  }
+
+  createOrder() {
     let currentUser = this.props.rootStore.userStore.getCurrentUser
     let allItems = this.props.rootStore.cartStore.allItems
     let order = this.setOrder(currentUser.token, allItems)
     ProductActions.sendOrder(JSON.stringify(order)).then((resp)=>{
       console.log(resp)
+      alert("Orden creada!")
+      this.props.close()
     })
-    //If logged
-    // let session = this.props.rootStore.userStore.session
-    // console.log(session)
-    // if (session) {
-    //   //Make purchase
-    //   console.log("HAI BUYY")
-    // }else{
-    //   this.register()
-    // }
   }
 
   setOrder(auth, bag) {

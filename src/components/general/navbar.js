@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter} from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import Rodal from 'rodal';
 import { observer, inject } from 'mobx-react';
@@ -37,7 +38,7 @@ class Navbar extends Component {
 
   logout() {
     this.props.rootStore.userStore.removeUser()
-    window.location.href = '/'
+    this.props.history.push('/')
 
   }
 
@@ -63,11 +64,11 @@ class Navbar extends Component {
       <div className="header">
                 
         <Rodal customStyles={loginStyle} visible={this.state.loginVisible} onClose={this.hide}>
-          <Login /> 
+          <Login close={this.hide}/> 
         </Rodal>
 
         <Rodal customStyles={cartStyle} visible={this.state.shoppingVisible} onClose={this.hide}>
-          <ShopCart />
+          <ShopCart  close={this.hide}/>
         </Rodal>
 
         <Link to="/"><a className="logo">            
@@ -80,7 +81,7 @@ class Navbar extends Component {
           {
             this.props.rootStore.userStore.session() ? (
               <span>
-                <Link to="/ordenes"><a> Ordenes </a></Link>
+                <Link to="/ordenes"><a href="/"> Ordenes </a></Link>
                 <Link to="/"><a href="/" onClick={this.logout}> Salir </a></Link>
               </span>
             ):(
@@ -93,4 +94,4 @@ class Navbar extends Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);

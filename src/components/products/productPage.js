@@ -13,10 +13,10 @@ class ProductPage extends Component {
     }
   }
 
-  addItemToCart= (id, name, qty) => {
+  addItemToCart= (item) => {
     console.log(this.props.rootStore.cartStore.allItems)
     alert("Producto añadido")
-    this.props.rootStore.cartStore.addItem(id, name, qty)
+    this.props.rootStore.cartStore.addItem(item)
   }
   
   componentDidMount() {
@@ -40,7 +40,7 @@ class ProductPage extends Component {
               <div className="product-detail">
                 <h3>{product.attributes.title} </h3>
                 <p>{product.attributes.description}</p>
-                <button onClick={() => this.addItemToCart(1,"item1",3)}> Agregar </button>
+                <button onClick={() => this.addItemToCart(product.attributes)}> Agregar </button>
               </div>
             </div>
             {/* <div className="comments-container">

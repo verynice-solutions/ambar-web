@@ -130,7 +130,7 @@ class Shopcart extends Component {
                   <p> {this.state.error} </p>
                 )
               }
-              <button onClick={()=>this.purchase()}  type="submit">Crear Orden</button>
+              <button style={{color: 'red'}} onClick={()=>this.purchase()}  type="submit">Crear Orden</button>
            </div>
             ):(
               <p> No items en el carrito </p>

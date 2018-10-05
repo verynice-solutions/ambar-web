@@ -43,12 +43,12 @@ class ProductPage extends Component {
                 <button onClick={() => this.addItemToCart(1,"item1",3)}> Agregar </button>
               </div>
             </div>
-            <div className="comments-container">
+            {/* <div className="comments-container">
               <form>
                 <textarea rows="10" name="comment" id="comment" placeholder="Comentario"></textarea>
                 <input type="submit" name="submit" value="Comentar"></input>
               </form> 
-            </div>
+            </div> */}
           </div>
           )
         }

@@ -39,37 +39,43 @@ class Navbar extends Component {
   logout() {
     this.props.rootStore.userStore.removeUser()
     this.props.history.push('/')
-
   }
 
   render() {
 
-    const cartStyle = {
-      width: 'auto',
-      maxWidth: '50vw',
-      height: 'auto',
-      maxHeight: '30vh',
+    let cartStyle = {
+      width: '40vw',
+      height: '35vw',
       overflow: 'auto',
     }
 
-    const loginStyle = {
-      width: 'auto',
-      maxWidth: '25vw',
-      height: 'auto',
-      maxHeight: '30vh',
+    let loginStyle = {
+      width: '25vw',
+      height: '20vw',
       overflow: 'auto',
     }
-
+    if(document.documentElement.clientWidth < 700) {
+      cartStyle = {
+        width: '90vw',
+        height: '80vw',
+        overflow: 'auto',
+      }
+      loginStyle = {
+        width: '90vw',
+        height: '60vw',
+        overflow: 'auto',
+      }
+    }
     return (
       <div className="header">
-                
+
         <Rodal customStyles={loginStyle} visible={this.state.loginVisible} onClose={this.hide}>
           <Login close={this.hide}/> 
         </Rodal>
-
         <Rodal customStyles={cartStyle} visible={this.state.shoppingVisible} onClose={this.hide}>
           <ShopCart  close={this.hide}/>
         </Rodal>
+        
 
         <Link to="/"><a className="logo">            
          <img alt="" className="logo-img" src="/ambar-logo.png" />

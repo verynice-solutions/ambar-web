@@ -19,7 +19,9 @@ class ProductCard extends Component {
     return (
       <div className='product-card'>
         <div className='card-image'>
-         <img alt="" className="carousel-img" src={product.links.image}/>
+          <div style={{width: '100%', height: '12.578125vw',padding: '0 2%',
+            backgroundImage: `url(${product.links.image})`, backgroundPosition: 'center',
+            backgroundSize: 'contain', backgroundRepeat: 'no-repeat'}} className="prod-img" />
         </div>
         <div className='card-info'>
           <div className='card-title'>

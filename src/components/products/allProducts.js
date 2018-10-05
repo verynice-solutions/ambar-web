@@ -47,8 +47,8 @@ class AllProducts extends Component {
     let products = this.state.showingProducts
     let categories = this.state.currentCategories
     return (
-      <div>
-        <h3> Productos </h3>
+      <div className="all-products">
+        <h3 className="products-title"> Productos </h3>
         <div className="products-filter">
           <div className="dropdown">
             <a>Filtrar</a>
@@ -73,10 +73,12 @@ class AllProducts extends Component {
           </div>
           <div className="products">
           {
-            products && (
+            products ? (
               products.map((product)=>{
                 return <ProductCard productInfo={product}/>
               })
+            ):(
+              <p style={{textAlign: 'center'}}>cargando...</p>
             )
           }
           </div>

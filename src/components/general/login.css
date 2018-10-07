@@ -1,6 +1,17 @@
 .login-form {
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 20px 0 0 0;
+}
+.login-form label {
+  margin: 20px  0 0 0;
+  color: #0d4661 !important;
+}
+.login-form input::placeholder {
+  color: #0d4661 !important;
+}
+.login-form button{
+  margin: 5% 0 0 0;
+  color: #0d4661 !important;
 }

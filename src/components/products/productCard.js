@@ -27,7 +27,7 @@ class ProductCard extends Component {
           <div className='card-title'>
             <h5> {product.attributes.title} </h5>
           </div>
-          <div>
+          <div className='card-info'>
             <p> $ {product.attributes.price} </p>
           </div>
           <div className='card-description'>

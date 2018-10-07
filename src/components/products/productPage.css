@@ -15,6 +15,9 @@
 .product-detail {
   margin: 0 20px;
 }
+.product-detail button {
+  color: #0d4661;
+}
 
 @media screen and (max-width: 600px) {
   

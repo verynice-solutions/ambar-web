@@ -3,11 +3,7 @@ iframe {
   height: 80vh;
   width: 50vw;
 }
-.slide-view {
-  background-color: rgb(226,211,183);
-}
 .section {
-  background-color: #e2d3b7;
   height: auto;
   min-height: 100vh;
   padding: 5% 0;

@@ -5,7 +5,9 @@ a {
   min-height: 100vh;
 }
 .products-title {
-  padding: 0 0 2% 0;
+  font-family: 'Alex Brush', cursive;
+  font-size: 3vw;
+  padding: 2% 0;
 }
 .products-section {
   display: flex; 
@@ -21,7 +23,8 @@ a {
   flex-direction: column;
   justify-content: flex-start;
   text-align: left;
-  padding: 2% 0 2% 20px;
+  padding: 2% 0 2% 2%;
+  margin: 0 2% 0 0;
 }
 .side-section a{
   margin: 5px 0;
@@ -36,7 +39,6 @@ a {
   text-align: center;
 }
 .products-section {
-  background-color: #e2d3b7;
   padding: 2% 0;
 }
 
@@ -66,9 +68,14 @@ a {
 }
 
 @media screen and (max-width: 600px) {
+  .products-title {
+    font-family: 'Alex Brush', cursive;
+    font-size: 7vw;
+  }
   .products-section {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
   .side-section {
     align-content: center;

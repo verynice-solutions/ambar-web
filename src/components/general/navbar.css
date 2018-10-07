@@ -1,13 +1,23 @@
+.header-logo {
+  font-family: 'Alex Brush', cursive;
+  font-size: 5vw !important;
+}
 .header {
   overflow: hidden;
-  background-image: linear-gradient(to top, rgb(226,211,183) , rgb(0,0,0,0.12));
+  /* background-image: linear-gradient(to top, rgb(226,211,183) , rgb(0,0,0,0.12)); */
   /* background-color: #f1f1f1; */
+  margin: 2% 0;
   padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 2px solid #0d4661;
 }
 
 .header a {
-  float: left;
-  color: black;
+  color: #0d4661 !important;
+  font-style: italic;
+  float: center;
   text-align: center;
   padding: 12px 12px;
   text-decoration: none;
@@ -28,13 +38,9 @@
   color: black;
 }
 
-.header a.active {
-  background-color: dodgerblue;
-  color: white;
-}
-
 .header-right {
   float: right;
+  margin: 2% 0;
 }
 .logo-img {
   width: 48px;
@@ -43,6 +49,9 @@
 }
 
 @media screen and (max-width: 500px) {
+  .header-logo {
+    font-size: 10vw !important;
+  }
   .header a {
     float: none;
     display: block;
@@ -53,7 +62,6 @@
     display: flex;
     justify-content: center;
     align-content: center;
-    margin: 15px 0 0 0;
   }
 }
 

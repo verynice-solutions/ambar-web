@@ -77,21 +77,34 @@ class Navbar extends Component {
         </Rodal>
         
 
-        <Link to="/"><a className="logo">            
-         <img alt="" className="logo-img" src="/ambar-logo.png" />
+        <Link to="/"><a className="header-logo">            
+         Ambar
         </a></Link>
         <div className="header-right">
           {/* <a class="active" href="#home">Home</a> */}
-          <Link to="/"> <a href="/" name="shoppingVisible" onClick={this.show}> Carrito  {this.props.rootStore.cartStore.items.length}</a></Link>
-          <Link to="/products"><a> Productos </a></Link>
+        <Link to="/"> <a href="/" name="shoppingVisible" onClick={this.show}> 
+            <img width="32px" height="32px" src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/cart-512.png" />
+            &nbsp;{this.props.rootStore.cartStore.items.length}
+          </a>
+        </Link>
+          <Link to="/products"><a>
+            <img width="32px" height="32px" src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/heart-512.png" />
+            &nbsp; Categorías 
+          </a></Link>
           {
             this.props.rootStore.userStore.session() ? (
               <span>
                 <Link to="/ordenes"><a href="/"> Ordenes </a></Link>
-                <Link to="/"><a href="/" onClick={this.logout}> Salir </a></Link>
+                <Link to="/"><a href="/" onClick={this.logout}> 
+                 <img width="32px" height="32px" src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/avatar-512.png" />
+                 &nbsp; Salir 
+                 </a></Link>
               </span>
             ):(
-              <Link to="/"><a href="/" name="loginVisible" onClick={this.show}> Inicio </a></Link>
+              <Link to="/"><a href="/" name="loginVisible" onClick={this.show}> 
+               <img width="32px" height="32px" src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/avatar-512.png" />
+               &nbsp; Inicio 
+              </a></Link>
             )
           }
         </div>

@@ -1,17 +1,19 @@
 .shop-form div{
   overflow: auto;
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
+  align-content: center;
   justify-content: center;
+  padding: 0 5%;
 }
 
 .cart-item div{
   overflow: auto;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  margin: 0;
+  justify-content: space-between;
+  padding: 0;
+  margin: 2% 0 0 0;
 }
 
 .rodal-container {
@@ -19,6 +21,19 @@
   width: 20px;
   height: 80px;
 }
+
+.shop-form label {
+  margin: 20px  0 0 0;
+  color: #0d4661 !important;
+}
+.shop-form input::placeholder {
+  color: #0d4661 !important;
+}
+.shop-form button{
+  margin: 5% 0 0 0;
+  color: #0d4661 !important;
+}
+
 /* 
 @media screen and (min-width: 500px) {
 

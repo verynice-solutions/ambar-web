@@ -85,14 +85,15 @@ class Shopcart extends Component {
     this.setOrder(allItems)
     return (
       <div>        
-        Carrito
+        <h4 style={{marginBottom: '6%'}}>Carrito</h4>
         <div className='shop-form'>
           {
             allItems.length > 0 ? (
               <div className='shop-list'>
                 <div className='cart-item'>
-                  <div><div> Nombre </div>
-                  <div> Precio </div></div>
+                  <h5>Items</h5>
+                  <div><div> <p style={{fontWeight: 'bold'}}>NOMBRE</p> </div>
+                  <div> <p style={{fontWeight: 'bold'}}>PRECIO</p> </div></div>
                 </div>
                 <div className='cart-item'>
                   {
@@ -110,7 +111,7 @@ class Shopcart extends Component {
 
             {
               !this.props.rootStore.userStore.session() &&(
-                <div>
+                <div className="register-form">
                   <label htmlFor="username"><b>Nombre</b></label>
                   <input onChange={this.handleChange} type="text" placeholder="Nombre" name="username" />
       

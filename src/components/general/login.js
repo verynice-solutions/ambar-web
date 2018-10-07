@@ -45,7 +45,7 @@ class Login extends Component {
 
     return (
       <div>        
-          Login
+          <h4>Login</h4>
           <div className='login-form'>
             <label htmlFor="email"><b>E-mail</b></label>
             <input onChange={this.handleChange} type="text" placeholder="Enter E-mail" name="email" />

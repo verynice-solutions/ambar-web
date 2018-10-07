@@ -37,7 +37,7 @@ class Orders extends Component {
     let orders = this.state.allOrders
     return (
       <div className="orders-view">
-        <h3>Ordenes</h3>
+        <h3 style={{marginBottom: '5%'}}>Ordenes</h3>
         <table>
           <tr>
             <th>ORDEN</th>

@@ -8,10 +8,10 @@ table {
   width: 100%;
 }
 th {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #0d4661;
   font-size: 16px;
   padding: 0 0 -1% 0;
-  color: gray
+  color: #0d4661;
 }
 td {
   padding: 20px 2px;
@@ -20,7 +20,8 @@ td {
 
 .orders-view {
   min-height: 80vh;
-  padding: 0 15%;
+  height: auto;
+  padding: 2% 15%;
 }
 
 @media screen and (max-width: 700px) {

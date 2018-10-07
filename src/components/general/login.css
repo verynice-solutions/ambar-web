@@ -8,6 +8,9 @@
   margin: 20px  0 0 0;
   color: #0d4661 !important;
 }
+.login-form input {
+  color: #0d4661 !important;
+}
 .login-form input::placeholder {
   color: #0d4661 !important;
 }

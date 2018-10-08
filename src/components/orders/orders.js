@@ -31,16 +31,38 @@ class Orders extends Component {
     let mDisplay = m > 0 ? m + (m == 1 ? " minuto, " : " minutos, ") : "";
     let sDisplay = s > 0 ? s + (s == 1 ? " segundo" : " segundos") : "";
     return hDisplay + mDisplay + sDisplay; 
+  }
+
+  status(state) {
+    switch(state){
+      case "received":
+        return "Recibida"
+        break;
+      case "created":
+        return "Creada"
+        break;
+      case "preparing":
+        return "Preparación"
+        break;
+      case "sended":
+        return "Enviada"
+        break;
+      case "delivered":
+        return "Entregada"
+        break;
+      default:
+        return state
     }
+  }
 
   render() {
     let orders = this.state.allOrders
     return (
       <div className="orders-view">
-        <h3 style={{marginBottom: '5%'}}>Ordenes</h3>
+        <h3>Órdenes</h3>
         <table>
           <tr>
-            <th>ORDEN</th>
+            <th>ESTADO</th>
             <th>ESTIMADO</th>
             <th>ITEM</th>
             <th>CANTIDAD</th>
@@ -51,7 +73,7 @@ class Orders extends Component {
               orders.map((item, i)=>{
                 return item.order_items.map((o_item, ii)=>{
                   return <tr>
-                    {ii===0?(<td>{item.id}</td>):(<td/>)}
+                    <td>{this.status(item.status)}</td>
                     {ii===0?(<td>{this.secondsToHms(item.estimate)}</td>):(<td/>)}
                     <td>{o_item.title}</td>
                     <td>{o_item.quantity}</td>

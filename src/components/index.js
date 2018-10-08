@@ -18,6 +18,9 @@ class Routes extends Component {
       <div>
         <Router>
           <div>
+            <div className='country-header'>
+              <img width="32px" height="32px" src='/colombia.png'/>
+            </div>
             <Navbar />  
             <Switch>
               <Route exact path="/" component={Landing} />

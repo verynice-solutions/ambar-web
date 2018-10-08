@@ -78,7 +78,7 @@ class Navbar extends Component {
         
 
         <Link to="/"><a className="header-logo">            
-         Ambar
+         Ámbar
         </a></Link>
         <div className="header-right">
           {/* <a class="active" href="#home">Home</a> */}
@@ -94,7 +94,7 @@ class Navbar extends Component {
           {
             this.props.rootStore.userStore.session() ? (
               <span>
-                <Link to="/ordenes"><a href="/"> Ordenes </a></Link>
+                <Link to="/ordenes"><a href="/"> Órdenes </a></Link>
                 <Link to="/"><a href="/" onClick={this.logout}> 
                  <img width="32px" height="32px" src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/avatar-512.png" />
                  &nbsp; Salir 

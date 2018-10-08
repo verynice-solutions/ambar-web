@@ -9,7 +9,7 @@ class Footer extends Component {
           <div className="footer-section">
             <div className="footer-subsection">
               <Link to="/"><a className="footer-logo">            
-               Ambar
+               Ámbar
               </a></Link>
             </div>
             {/* <div className="footer-subsection">
@@ -20,7 +20,7 @@ class Footer extends Component {
           </div>
 
           <div className="social-section">
-            <p className="foot-title"> Siguenos! </p>
+            <p className="foot-title"> Síguenos! </p>
             <div className="footer-subsection">
               <a className="a-logo"><img width="64px" height="64px" src="https://cdn1.iconfinder.com/data/icons/social-media-color-1/128/yumminky-social-media-01-128.png" /></a>      
               <a className="a-logo"><img width="64px" height="64px" src="https://cdn1.iconfinder.com/data/icons/social-media-color-1/128/yumminky-social-media-02-128.png" /></a>              

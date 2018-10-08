@@ -48,13 +48,12 @@ class AllProducts extends Component {
     let categories = this.state.currentCategories
     return (
       <div className="all-products">
-        <h3 className="products-title"> Productos </h3>
         <div className="products-filter">
           <div className="dropdown">
             <a>Filtrar</a>
             <div className="dropdown-items">
-              <p><a name="price_asc" onClick={this.setFilter}>menor a mayor precio</a></p>
-              <p><a name="price_desc" onClick={this.setFilter}>mayor a menor precio</a></p>
+              <p><a name="price_asc" onClick={this.setFilter}>Menor a mayor precio</a></p>
+              <p><a name="price_desc" onClick={this.setFilter}>Mayor a menor precio</a></p>
             </div>
           </div>
           <div>
@@ -64,7 +63,7 @@ class AllProducts extends Component {
         
         <div className="products-section">
           <div className="side-section">
-          <h6 style={{borderBottom: '1px solid #273b84', color:'#273b84'}}>Categorias</h6>
+          <h6 style={{borderBottom: '1px solid #273b84', color:'#273b84'}}>Categorías</h6>
             {
               categories&& categories.map((cat)=>{
                 return <a name={cat.name} onClick={this.showCategory}>{cat.name}</a>

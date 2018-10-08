@@ -1,7 +1,21 @@
-.carousel-img {
-  max-width:  100%;
+.carousel-img1 {
+  width:  100vw;
   height: auto;
-  background-position: 50% 50%;
-  background-repeat:   no-repeat;
-  background-size:     cover;
+  max-height: 100vh;
+  object-position: 0 7%;
+  object-fit:     cover;
+}
+.carousel-img2 {
+  width:  100vw;
+  height: auto;
+  max-height: 100vh;
+  object-position: 50% 30%;
+  object-fit:     cover;
+}
+.carousel-img3 {
+  width:  100vw;
+  height: auto;
+  max-height: 100vh;
+  object-position: 0 70%;
+  object-fit:     cover;
 }

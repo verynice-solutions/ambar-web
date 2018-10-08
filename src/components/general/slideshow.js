@@ -23,13 +23,13 @@ class Slideshow extends Component {
         <Slider {...settings}>
           <div>
             {/* <h3>1</h3> */}
-            <img alt="" className="carousel-img" src="https://gallery-wallpaper.com/wp-content/uploads/2018/02/wallpaper-of-a-dog-running-australian-shepherd-aussie-dog-running-mood-hd-wallpaper.jpg"/>
+            <img alt="" className="carousel-img1" src="/collection1.png"/>
           </div>
           <div>
-            <img alt="" className="carousel-img" src="https://www.corredorasparaperros.com/wp-content/uploads/2017/10/photo-boston-terrier-dog-running-hd-dogs-wallpapers.jpg" />
+            <img alt="" className="carousel-img2" src="/meli_medalla2.png" />
           </div>
           <div>
-            <img alt="" className="carousel-img" src="https://gallery-wallpaper.com/wp-content/uploads/2018/02/wallpaper-of-a-dog-running-australian-shepherd-aussie-dog-running-mood-hd-wallpaper.jpg"/>
+            <img alt="" className="carousel-img3" src="/meli_pulsera1.png"/>
           </div>
         </Slider>
       </div>

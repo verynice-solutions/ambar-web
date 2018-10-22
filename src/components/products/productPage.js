@@ -34,21 +34,29 @@ class ProductPage extends Component {
       <div> 
         {
           product &&(
-          <div> 
-            <div className="product-page"> 
-              <div> <img src={product.links.image}/> </div>
-              <div className="product-detail">
-                <h3>{product.attributes.title} </h3>
-                <p>{product.attributes.description}</p>
-                <button onClick={() => this.addItemToCart(product.attributes)}> Agregar </button>
+          <div>
+            <div className="product-page-padding">
+              <div className="product-page"> 
+                <div> <img src={product.links.image}/> </div>
+                <div className="product-detail">
+                  <div>
+                    <div className='rating'>
+                      <div class="star-ratings-sprite"><span className="star-ratings-sprite-rating"></span></div>
+                    </div>
+                    <h3>{product.attributes.title}</h3>
+                  </div>
+                  <p>{product.attributes.description}</p>
+                  <p> $ {product.attributes.price}</p>
+                  <button  className="add-button" onClick={() => this.addItemToCart(product.attributes)}> Agregar </button>
+                  {<div className="comments-container">
+                    <form>
+                      <textarea rows="5" name="comment" id="comment" placeholder="Comentario"></textarea>
+                      <input className='comment-button' type="submit" name="submit" value="Comentar"></input>
+                    </form>
+                  </div> }
+                </div>
               </div>
             </div>
-            {/* <div className="comments-container">
-              <form>
-                <textarea rows="10" name="comment" id="comment" placeholder="Comentario"></textarea>
-                <input type="submit" name="submit" value="Comentar"></input>
-              </form> 
-            </div> */}
           </div>
           )
         }

@@ -20,14 +20,13 @@ class Footer extends Component {
           </div>
 
           <div className="social-section">
-            <p className="foot-title"> Síguenos! </p>
+            <p className="foot-title">Síguenos!</p>
             <div className="footer-subsection">
               <a className="a-logo"><img width="64px" height="64px" src="https://cdn1.iconfinder.com/data/icons/social-media-color-1/128/yumminky-social-media-01-128.png" /></a>      
               <a className="a-logo"><img width="64px" height="64px" src="https://cdn1.iconfinder.com/data/icons/social-media-color-1/128/yumminky-social-media-02-128.png" /></a>              
               <a className="a-logo"><img width="64px" height="64px" src="https://cdn1.iconfinder.com/data/icons/social-media-color-1/128/yumminky-social-media-06-128.png" /></a>              
             </div>
           </div>
-
           <p className="foot-item"> © Ambar. 2018. Todos los derechos reservados. </p>
       </div>
     );

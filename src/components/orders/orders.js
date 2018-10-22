@@ -63,7 +63,7 @@ class Orders extends Component {
         <table>
           <tr>
             <th>ESTADO</th>
-            <th>ESTIMADO</th>
+            <th>PREPARACIÓN</th>
             <th>ITEM</th>
             <th>CANTIDAD</th>
             <th>PRECIO</th>

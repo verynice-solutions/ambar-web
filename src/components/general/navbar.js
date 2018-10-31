@@ -89,7 +89,7 @@ class Navbar extends Component {
         </Link>
           <Link to="/products"><a>
             <img width="32px" height="32px" src="https://cdn4.iconfinder.com/data/icons/evil-icons-user-interface/64/heart-512.png" />
-            &nbsp; Categorías 
+            &nbsp; Colecciones
           </a></Link>
           {
             this.props.rootStore.userStore.session() ? (

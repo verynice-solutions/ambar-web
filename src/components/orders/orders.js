@@ -58,33 +58,34 @@ class Orders extends Component {
   render() {
     let orders = this.state.allOrders
     return (
-      <div className="orders-view">
-        <h3>Órdenes</h3>
-        <table>
-          <tr>
-            <th>ESTADO</th>
-            <th>PREPARACIÓN</th>
-            <th>ITEM</th>
-            <th>CANTIDAD</th>
-            <th>PRECIO</th>
-          </tr>
-          {
-            orders&& (
-              orders.map((item, i)=>{
-                return item.order_items.map((o_item, ii)=>{
-                  return <tr>
-                    <td>{this.status(item.status)}</td>
-                    {ii===0?(<td>{this.secondsToHms(item.estimate)}</td>):(<td/>)}
-                    <td>{o_item.title}</td>
-                    <td>{o_item.quantity}</td>
-                    <td>${o_item.price}</td>
-                  </tr>
-                })
-              })
-            )
-          }
-        </table>
-      </div>
+        <div className="orders-view">
+            <h3>Órdenes</h3>
+            <table>
+              <tr>
+                <th>ESTADO</th>
+                <th>PREPARACIÓN</th>
+                <th>ITEM</th>
+                <th>CANTIDAD</th>
+                <th>PRECIO</th>
+                <th>TOTAL</th>
+              </tr>
+              {
+                orders&& (
+                  orders.map((item, i)=>{
+                    return item.order_items.map((o_item, ii)=>{
+                      return <tr>
+                        <td>{this.status(item.status)}</td>
+                        {ii===0?(<td>{this.secondsToHms(item.estimate)}</td>):(<td/>)}
+                        <td>{o_item.title}</td>
+                        <td>{o_item.quantity}</td>
+                        <td>${o_item.price}</td>
+                      </tr>
+                    })
+                  })
+                )
+              }
+            </table>
+          </div>
   );
   }
 }

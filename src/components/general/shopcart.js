@@ -84,7 +84,7 @@ class Shopcart extends Component {
     let allItems = this.props.rootStore.cartStore.allItems
     this.setOrder(allItems)
     return (
-      <div>        
+      <div>
         <h4 style={{marginBottom: '6%'}}>Carrito</h4>
         <div className='shop-form'>
           {

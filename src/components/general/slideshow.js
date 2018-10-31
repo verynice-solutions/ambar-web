@@ -19,7 +19,7 @@ class Slideshow extends Component {
     };
 
     return (
-      <div>        
+      <div className='slider-spacing'>
         <Slider {...settings}>
           <div>
             {/* <h3>1</h3> */}
@@ -29,7 +29,7 @@ class Slideshow extends Component {
             <img alt="" className="carousel-img2" src="/meli_medalla2.png" />
           </div>
           <div>
-            <img alt="" className="carousel-img3" src="/meli_pulsera1.png"/>
+            <img alt="" className="carousel-img3" src="/melissa-aretes.png"/>
           </div>
         </Slider>
       </div>

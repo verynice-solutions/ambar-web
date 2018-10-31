@@ -22,7 +22,7 @@ class Landing extends Component {
         <div className="section">
           <div className="subsection">
             <div className="about-container">
-              <h3> Acerca de Nosotros</h3>
+              <h3 className='title-about'> Acerca de Nosotros</h3>
               <p>ÁMBAR es una empresa Barranquillera dedicada a la 
                 producción de artículos de bisutería que busca materializar las
                 ideas y satisfacer las necesidades de nuestros clientes,
@@ -38,30 +38,38 @@ class Landing extends Component {
             </div> 
           </div>
           <div className="subsection">
-            <div className="big-logo">
+            {/* <div className="big-logo">
               <img src="/ambar-logo.png" />
-            </div>
+            </div> */}
             <div className="mision-container">
-              <h3>Misión</h3>
-              <p>
-              ÁMBAR es una empresa del sector de bisutería que tiene como
-              objetivo crear manualmente prendas exclusivas que se
-              caractericen por su calidad, elegancia y un diseño innovador y
-              vanguardista. Buscamos brindarle a nuestros clientes productos
-              con precios atractivos y de excelente calidad, motivados por el
-              deseo de ser líderes en el mercado cumpliendo una labor con
-              conciencia social y medio ambiental.
-              </p>
-              <h3>Visión</h3>
-              <p>
-              A 2020 ÁMBAR será reconocido por participar
-              estratégicamente en los mercados en los cuales nos
-              posicionamos, teniendo productos exclusivos en materia
-              de diseño y estética, siendo preferidos por nuestros
-              clientes y logrando ser líder. Así mismo, seremos una
-              empresa financieramente sostenible y sólida, así como
-              una organización con ética laboral excepcional.
-              </p>
+              <div className='parallax'>
+                <div className= 'sub-mision-container'>
+                  <h3>Misión</h3>
+                  <p>
+                  ÁMBAR es una empresa del sector de bisutería que tiene como
+                  objetivo crear manualmente prendas exclusivas que se
+                  caractericen por su calidad, elegancia y un diseño innovador y
+                  vanguardista. Buscamos brindarle a nuestros clientes productos
+                  con precios atractivos y de excelente calidad, motivados por el
+                  deseo de ser líderes en el mercado cumpliendo una labor con
+                  conciencia social y medio ambiental.
+                  </p>
+                </div>
+              </div>
+              <div className='vision-container'>
+                <div className='vision-container-text'>
+                  <h3>Visión</h3>
+                  <p>
+                  A 2020 ÁMBAR será reconocido por participar
+                  estratégicamente en los mercados en los cuales nos
+                  posicionamos, teniendo productos exclusivos en materia
+                  de diseño y estética, siendo preferidos por nuestros
+                  clientes y logrando ser líder. Así mismo, seremos una
+                  empresa financieramente sostenible y sólida, así como
+                  una organización con ética laboral excepcional.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

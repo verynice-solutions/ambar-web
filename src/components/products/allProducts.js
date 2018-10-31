@@ -15,7 +15,7 @@ class AllProducts extends Component {
     this.setFilter = this.setFilter.bind(this)
 
   }
-  
+
   componentDidMount() {
     productsActions.getAll().then((resp)=>{
       this.setState({showingProducts: resp.data})
@@ -56,14 +56,14 @@ class AllProducts extends Component {
               <p><a name="price_desc" onClick={this.setFilter}>Mayor a menor precio</a></p>
             </div>
           </div>
-          <div>
+          <div className='type-filter'>
             <p>Categoría: {this.state.currentName}</p>
           </div>
         </div>
-        
+
         <div className="products-section">
           <div className="side-section">
-          <h6 style={{borderBottom: '1px solid #273b84', color:'#273b84'}}>Categorías</h6>
+          <h6 style={{borderBottom: '1px solid #273b84', color:'#273b84'}}>Lineas</h6>
             {
               categories&& categories.map((cat)=>{
                 return <a name={cat.name} onClick={this.showCategory}>{cat.name}</a>

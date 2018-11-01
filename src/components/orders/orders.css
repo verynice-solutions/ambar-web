@@ -18,15 +18,26 @@ td {
   font-size: 14px;
 }
 
+.test {
+  width: 100%;
+  height: 100vh;
+  opacity: 5;
+}
+
 .orders-view {
-  background-image: url('/envío3.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
   min-height: 90vh;
   height: auto;
   margin-top: 0em;
   margin-bottom: -3.0em;
   padding: 2% 15%;
+  opacity: 5;
+  background-image: url('/envío3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.orders-view table {
+  opacity: 5;
 }
 
 .orders_resume {
@@ -39,6 +50,8 @@ td {
     left: 0;
     min-width: 90vw;
     table-layout: auto;
+    opacity: 5;
+    z-index: 10;
   }
   .orders-view {
     padding: 0 2px;

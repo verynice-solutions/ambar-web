@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import ProductsActions from '../../actions/products_actions'
 import CommentsActions from '../../actions/comments_actions'
+import RankingActions from '../../actions/ranking_actions'
 import { withRouter } from 'react-router-dom'
 import './productPage.css'
+import ReactStars from 'react-stars'
+import { render } from 'react-dom'
 
 @inject("rootStore")  
 @observer
@@ -12,8 +15,27 @@ class ProductPage extends Component {
     super(props);
     this.state = {
       productInfo: null,
-      comment: null
+      productComments: null,
+      comment: null,
+      averageRanking: 0
     }
+  }
+
+  ratingChanged = (newValue) => {
+    let currentUser = this.props.rootStore.userStore.getCurrentUser;
+      if (currentUser) {
+        let item = this.state.productInfo;
+        RankingActions.createNewRanking(item.id, currentUser.token, newValue);
+        console.log('reached here');
+        let id = this.props.match.params.id
+        RankingActions.getAllRankings(id).then((resp) => {
+          if(resp.status !== 403) {
+            this.setState({averageRanking: resp.data})
+          }
+        })
+      } else {
+        console.log('nill current user');
+      }
   }
 
   addItemToCart= (item) => {
@@ -50,11 +72,22 @@ class ProductPage extends Component {
         this.setState({productInfo: resp.data})
       }
     })
+    CommentsActions.getAllComments(id).then((resp) => {
+      if(resp.status !== 403){
+        this.setState({productComments: resp.data})
+      }
+    })
+    RankingActions.getAllRankings(id).then((resp) => {
+      if(resp.status !== 403) {
+        this.setState({averageRanking: resp.data})
+      }
+    })
   }
 
   render() {
     let product = this.state.productInfo
-    console.log(product)
+    let ranking = this.state.averageRanking
+    console.log(`${ranking}fafdsf`)
     return (
       <div>
         {
@@ -76,10 +109,17 @@ class ProductPage extends Component {
                 </div>
                 <div className="product-detail">
                   <div>
-                    <div className='rating'>
-                      <div className="star-ratings-sprite"><span className="star-ratings-sprite-rating"></span></div>
-                    </div>
                     <h3>{product.attributes.title}</h3>
+                    <div style={{marginBottom: '1em'}}>
+                          { <ReactStars
+                            value={this.state.averageRanking}
+                            count={5}
+                            size={24}
+                            color2={'orange'}
+                            onChange= {(newValue) => { this.ratingChanged(newValue) }}
+                           />
+                          }
+                    </div>
                   </div>
                   <p>{product.attributes.description}</p>
                   <p> $ {product.attributes.price}</p>
@@ -92,12 +132,21 @@ class ProductPage extends Component {
                   </div> }
                 </div>
               </div>
+              <div className='comment-flex'>
+                <div className='comment-scroll'>
+                  { this.state.productComments && this.state.productComments.map((i)=>{
+                    return <div style={{ paddingLeft: '0.8em', textAlign: 'left', paddingTop: '0.7em'}}>
+                              <div style={{ fontWeight: 'bold', fontFamily: 'Times new Roman'}}>Usuario: {i.user.email}</div>
+                              <p style={{fontFamily: 'Times new Roman'}}>Comment: {i.message}</p>
+                              <hr style={{ color: 'black', width:'156vh'}}/>
+                          </div>
+                  })}
+                </div>
+              </div>
             </div>
           </div>
           )
         }
-
-
       </div>
     );
   }

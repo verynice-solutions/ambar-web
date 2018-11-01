@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 function getAllComments(product_id) {
-  let url = `https://ambar-core.herokuapp.com/items/${product_id}/comments`
+  let url = `https://ambar-core.herokuapp.com/items/comments?item_id=${product_id}`
   return axios({
     url: url,
     method: 'get',
@@ -10,6 +10,7 @@ function getAllComments(product_id) {
       'Content-Type': 'application/json',
     }
   }).then(response => {
+    console.log(response.data)
     return response.data
   }).catch( error => {
     console.log(error);
@@ -18,7 +19,7 @@ function getAllComments(product_id) {
 }
 
 function createNewComment(product_id, token, message) {
-  let url = `https://ambar-core.herokuapp.com/items/${product_id}/comments`
+  let url = "https://ambar-core.herokuapp.com/items/comments"
   return axios({
     url: url,
     method: 'post',
@@ -28,9 +29,11 @@ function createNewComment(product_id, token, message) {
     },
     data: {
       authorization: token,
-      message: message
+      message: message,
+      item_id: product_id
     }
   }).then(response => {
+    console.log(response.data)
     return response.data
   }).catch( error => {
     console.log(error);
